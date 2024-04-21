@@ -78,7 +78,7 @@ datediff() {
 }
 mai="datediff "$Exp" "$DATE""
 
-REPO="https://raw.githubusercontent.com/cutepookie/free-pr/main/"
+REPO="https://raw.githubusercontent.com/feely666/aio/main/"
 
 ####
 start=$(date +%s)
@@ -463,7 +463,7 @@ END
 function udp_mini() {
         clear
         print_install "Memasang Service Limit Quota"
-        wget raw.githubusercontent.com/cutepookie/free-pr/main/limit/limit.sh && chmod +x limit.sh && ./limit.sh
+        wget raw.githubusercontent.com/feely666/aio/main/limit/limit.sh && chmod +x limit.sh && ./limit.sh
 
         cd
         wget -q -O /usr/bin/limit-ip "${REPO}limit/limit-ip"
