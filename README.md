@@ -6,7 +6,8 @@ Information:
 * SSH/XRAY/WebSocket
 * To Do:
     + [xray migration to sing-box]
-
+    + [changed some menu]
+    + [added new menu]
 
 
 
@@ -14,7 +15,7 @@ Information:
  ```html
  apt update -y && apt upgrade -y && wget -q https://raw.githubusercontent.com/feely666/aio/main/setup.sh && chmod +x setup.sh && ./setup.sh
   ```
- <img src="https://img.shields.io/badge/how-update-lime"></img>
+ <img src="https://img.shields.io/badge/update-menu-lime"></img>
  ```html
  wget https://raw.githubusercontent.com/feely666/aio/main/update.sh && chmod +x update.sh && ./update.sh
  ```
