@@ -16,7 +16,7 @@ green='\e[0;32m'
 
 apt upgrade -y
 apt update -y
-apt install lolcat -y
+apt install lolcat gnupg2 -y
 apt install wondershaper -y
 
 # // Exporint IP Address
