@@ -1,16 +1,12 @@
 # Warning: Project Not Completed
-</div>
 
-> [!NOTE]
-> 
-
-<div align="center">
 
 Information:
 
 * SSH/XRAY/WebSocket
 * To Do:
-    - [changed some menu]
+    + [xray migration to sing-box]
+    + [changed some menu]
     + [added new menu]
 
 
