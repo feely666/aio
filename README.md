@@ -5,8 +5,7 @@ Information:
 
 * SSH/XRAY/WebSocket
 * To Do:
-    + [xray migration to sing-box]
-    + [changed some menu]
+    - [changed some menu]
     + [added new menu]
 
 
