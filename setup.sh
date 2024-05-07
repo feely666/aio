@@ -769,7 +769,7 @@ function ins_restart() {
         systemctl enable --now haproxy
         systemctl enable --now netfilter-persistent
         systemctl enable --now ws
-        systemctl enable --now fail2ban
+        #systemctl enable --now fail2ban
         history -c
         echo "unset HISTFILE" >> /etc/profile
 
