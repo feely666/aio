@@ -784,7 +784,7 @@ function ins_restart() {
 function menu() {
         clear
         print_install "Memasang Menu Packet"
-        files=(addhost ceklim delss m-trojan renewtr trial user-tr addss cekss delssh m-vless renewvless trialss user-vless addssh cekssh deltr m-vmess renewws trialtr user-ws addtr cektr delvless member reset trialvless utility addvless cekvless delws menu restart trialvless.bak xp addws cekws fixcert menux run trialws autokill clearcache limitspeed prot sd trialws.bak autoreboot clearlog m-sshws renewss speedtest user-ss bw delexp m-ssws renewssh tendang user-ssh)
+        files=(addhost ceklim delss m-trojan renewtr trial user-tr addss cekss delssh m-vless renewvless trialss user-vless addssh cekssh deltr m-vmess renewws trialtr user-ws addtr cektr delvless member reset trialvless addvless cekvless delws menu restart trialvless.bak xp addws cekws fixcert menux run trialws autokill clearcache limitspeed prot sd trialws.bak autoreboot clearlog m-sshws renewss speedtest user-ss bw delexp m-ssws renewssh tendang user-ssh)
         cd /usr/local/sbin
         for file in "${files[@]}"
         do
