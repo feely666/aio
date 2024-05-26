@@ -200,11 +200,9 @@ function base_package() {
         clear
         ########
         print_install "Menginstall Packet Yang Dibutuhkan"
-        apt install zip pwgen openssl netcat socat cron bash-completion -y
-        apt install figlet -y
+        apt install zip pwgen openssl netcat socat cron bash-completion lsof ca-certificates -y
         apt update -y
         apt upgrade -y
-        apt dist-upgrade -y
         systemctl enable chronyd
         systemctl restart chronyd
         systemctl enable chrony
@@ -548,15 +546,15 @@ EOF
         print_success "Limit Quota Service"
 }
 
-function ssh_slow() {
-        clear
-        # // Installing UDP Mini
-        print_install "Memasang modul SlowDNS Server"
-        wget -q -O /tmp/nameserver "${REPO}limit/nameserver" > /dev/null 2>&1
-        chmod +x /tmp/nameserver
-        bash /tmp/nameserver | tee /root/install.log
-        print_success "SlowDNS"
-}
+#function ssh_slow() {
+#        clear
+#        # // Installing UDP Mini
+#        print_install "Memasang modul SlowDNS Server"
+#        wget -q -O /tmp/nameserver "${REPO}limit/nameserver" > /dev/null 2>&1
+#        chmod +x /tmp/nameserver
+#        bash /tmp/nameserver | tee /root/install.log
+#        print_success "SlowDNS"
+#}
 
 clear
 function ins_SSHD() {
@@ -618,11 +616,7 @@ function ins_openvpn() {
 
 function ins_backup() {
         clear
-        print_install "Memasang Backup Server"
-        #BackupOption
-        apt install rclone -y
-        printf "q\n" | rclone config
-        wget -O /root/.config/rclone/rclone.conf "${REPO}limit/rclone.conf"
+        print_install "misc"
         #Install Wondershaper
         cd /bin
         git clone https://github.com/magnific0/wondershaper.git
@@ -631,25 +625,8 @@ function ins_backup() {
         cd
         rm -rf wondershaper
         echo > /home/limit
-        apt install msmtp-mta ca-certificates bsd-mailx -y
-        cat << EOF >> /etc/msmtprc
-defaults
-tls on
-tls_starttls on
-tls_trust_file /etc/ssl/certs/ca-certificates.crt
-
-account default
-host smtp.gmail.com
-port 587
-auth on
-user oceantestdigital@gmail.com
-from oceantestdigital@gmail.com
-password jokerman77 
-logfile ~/.msmtp.log
-EOF
-        chown -R www-data:www-data /etc/msmtprc
         wget -q -O /etc/ipserver "${REPO}limit/ipserver" && bash /etc/ipserver
-        print_success "Backup Server"
+        print_success "misc"
 }
 
 clear
@@ -680,23 +657,23 @@ function ins_swab() {
 
 function ins_Fail2ban() {
         clear
-        print_install "Menginstall Fail2ban"
+        #print_install "Menginstall Fail2ban"
         #apt -y install fail2ban > /dev/null 2>&1
         #sudo systemctl enable --now fail2ban
         #/etc/init.d/fail2ban restart
         #/etc/init.d/fail2ban status
 
         # Instal DDOS Flate
-        if [ -d '/usr/local/ddos' ]; then
-                echo
-                echo
-                echo "Please un-install the previous version first"
-                exit 0
-        else
-                mkdir /usr/local/ddos
-        fi
+        #if [ -d '/usr/local/ddos' ]; then
+        #        echo
+        #        echo
+        #        echo "Please un-install the previous version first"
+        #        exit 0
+        #else
+        #        mkdir /usr/local/ddos
+        #fi
 
-        clear
+        #clear
         # banner
         echo "Banner /etc/xox.txt" >> /etc/ssh/sshd_config
         sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/xox.txt"@g' /etc/default/dropbear
@@ -754,7 +731,7 @@ function ins_restart() {
         /etc/init.d/openvpn restart
         /etc/init.d/ssh restart
         /etc/init.d/dropbear restart
-        /etc/init.d/fail2ban restart
+        #/etc/init.d/fail2ban restart
         /etc/init.d/vnstat restart
         systemctl restart haproxy
         /etc/init.d/cron restart
@@ -903,7 +880,7 @@ function instal() {
         install_xray
         ssh
         udp_mini
-        ssh_slow
+        #ssh_slow
         ins_SSHD
         ins_dropbear
         ins_vnstat
@@ -916,7 +893,6 @@ function instal() {
         menu
         profile
         enable_services
-        restart_system
 }
 instal
 echo ""
