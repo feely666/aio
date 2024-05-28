@@ -3,8 +3,8 @@
 > F
 
 ## Supported OS
- - [x] Ubuntu
- - [x] Debian
+ - [x] Ubuntu 18.04/20.04
+ - [x] Debian 9/10/11
 
 #### To-Do:
  + added new menu
